@@ -46,5 +46,7 @@ describe('Assertation demo',()=>{
 
         cy.get('.orangehrm-login-branding > img').should('be.visible') // to check that logo is present or not on webpage
         .and('exist')
+
+        cy.xpath('//a').should('have.length','5')
     })
 })
