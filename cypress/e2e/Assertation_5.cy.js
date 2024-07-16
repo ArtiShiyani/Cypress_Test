@@ -45,8 +45,12 @@ describe('Assertation demo',()=>{
         //Validation on prticular web element
 
         cy.get('.orangehrm-login-branding > img').should('be.visible') // to check that logo is present or not on webpage
-        .and('exist')
+        .and('exist') //logo exist
 
-        cy.xpath('//a').should('have.length','5')
+        cy.xpath('//a').should('have.length','5') //to check nomber of links
+
+        cy.get('input[placeholder="Username"]').type('Admin')// to enter value in input field.
+
+        cy.get('input[placeholder="Username"]').should('have.value','Admin') // to check the entered value in input field.
     })
 })
