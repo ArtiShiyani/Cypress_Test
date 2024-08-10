@@ -40,11 +40,11 @@ describe('Handle different DropDown',()=>{
 
             it('Dynamic Dropdown',()=>{
 
-                cy.visit('')
+                cy.visit('https://www.google.com/')
     
-                cy.xpath('').type('')
+                cy.xpath('name="q"').type('Cypress Automation')
     
-                cy.xpath('').contains('').click()
+                cy.xpath('//div[@class="wM6W7d"]/span').contains('').click()
             
                 })
 })
