@@ -43,8 +43,23 @@ describe('Handle different DropDown',()=>{
                 cy.visit('https://www.google.com/')
     
                 cy.xpath('name="q"').type('Cypress Automation')
+                
+                cy.wait(3000)
+
+                cy.xpath('//div[@class="wM6W7d"]/span').should('have.length','11') // assertation 
     
-                cy.xpath('//div[@class="wM6W7d"]/span').contains('').click()
+                cy.xpath('//div[@class="wM6W7d"]/span').each( ($el,index,$list) =>{
+
+                    if($el.text()==='Cypress Automation')
+                    {
+                        cy.wrap($el).click()
+                    }
+
+
+
+                } ) //each keyword in cypress
+
+                cy.xpath('name="q"').should('have.value','Cypress Automation') //Asssertation
             
                 })
 })
