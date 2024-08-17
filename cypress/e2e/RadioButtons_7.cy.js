@@ -60,17 +60,6 @@ describe('Checking UI Elements',()=>{
         cy.get('input[type="checkbox"]').last().check()
 
 
-        
-
-
-
-
-
-
-
-
-        
-
 
     })
 })
