@@ -8,9 +8,10 @@
 
 describe('my suite',()=>{
 
-    it('',()=>{
+    it('Browser Page navigation',()=>{
 
         cy.visit('https://demo.opencart.com/')
+        cy.wait(5000)
         cy.title().should('eq','Your Store')//Homepage
 
         cy.xpath('//li/a[text()="Cameras"]').click() // camera page
