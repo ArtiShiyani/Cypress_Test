@@ -25,26 +25,9 @@ it('JS Alerts',()=>{
     cy.get('#result').should('have.text','You successfully clicked an alert')
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //javascript confirm alert : it will have some text with "ok" and cancel buttons.
 //Javascript prompt alert: it will have some text with a text box for user input along with button 
 //Authonticated alert.
-
-
-  
+ 
 
 })

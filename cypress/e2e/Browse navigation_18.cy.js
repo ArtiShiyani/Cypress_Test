@@ -11,6 +11,14 @@ describe('my suite',()=>{
     it('Browser Page navigation',()=>{
 
         cy.visit('https://demo.opencart.com/')
+
+        
+    .window().then((win) => {
+    expect(win.bootstrap).to.exist; // solve this cypress error : ReferenceError: bootstrap is not defined
+
+
+  });
+
         cy.wait(5000)
         cy.title().should('eq','Your Store')//Homepage
 
