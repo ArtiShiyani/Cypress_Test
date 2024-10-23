@@ -18,9 +18,15 @@ describe('Handling Web table',()=>{
 
     it('Check number of rows and Column',()=>{
 
+        cy.get('table[class="table table-bordered table-hover"]>tbody>tr').should('have.length','10');
+        cy.get("table[class='table table-bordered table-hover']>thead>tr>td").should('have.length','6')
+
     })
 
     it('Check cell data from specofic rows and Column',()=>{
+
+        cy.get("table[class='table table-bordered table-hover']>tbody>tr:nth-child(5)>td:nth-child(3)").contains('Asd12@gmail.com')
+
 
     })
 
