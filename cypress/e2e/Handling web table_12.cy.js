@@ -18,8 +18,8 @@ describe('Handling Web table',()=>{
 
     it('Check number of rows and Column',()=>{
 
-        cy.get('table[class="table table-bordered table-hover"]>tbody>tr').should('have.length','10');
-        cy.get("table[class='table table-bordered table-hover']>thead>tr>td").should('have.length','6')
+        cy.get('table[class="table table-bordered table-hover"]>tbody>tr').should('have.length','10'); //table rows covered in 'tbody'
+        cy.get("table[class='table table-bordered table-hover']>thead>tr>td").should('have.length','6') // 'thead' contains column
 
     })
 
@@ -31,6 +31,20 @@ describe('Handling Web table',()=>{
     })
 
     it('Read all the  rows and Column in the first page',()=>{
+        cy.get('table[class="table table-bordered table-hover"]>tbody>tr') //Locator of all rows
+
+            .each( ($row,index,$rows)=>{
+
+                cy.wrap($row).within( ()=>{
+
+                    cy.get("td").each( ($col,index,$col)=>{
+
+                        cy.log($col.text());
+
+                    })
+                })
+
+            })
 
     })
 
