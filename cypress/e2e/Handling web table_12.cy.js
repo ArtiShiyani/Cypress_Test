@@ -1,3 +1,5 @@
+const { stubString } = require("cypress/types/lodash");
+
 describe('Handling Web table',()=>{
 
     beforeEach('Login',()=>{
@@ -50,28 +52,36 @@ describe('Handling Web table',()=>{
 
     it('Pagination',()=>{
 
+
+        //To find the total number of pages
+
+       /* let totalpages;
+
+        cy.get(".col-sm-6text-end").then((e )=>{
+
+                 let Mytext=e.text(); // showing 1 of 10 of 5581(559 page)
+                 totalpages=mytext.stubString(  mytext.indexOf("(")+1 , mytext.indexOf("Pages")-1);
+
+                 cy.location("total number of pages in table ===>" +totalpages);
+
+        })*/
+
+        let totalpages=5
+        for(let p=1 ;p<totalpages;p++)
+        {
+                if(totalpages>1)
+                {
+
+                        cy.log("Active page is ====="+p)
+                        cy.get("ul[class='pagination']>li:nth-child("+p+")").click()
+                        cy.wait(3000)
+                }
+
+
+
+
+        }
+
+
     })
-
-    it('Check number of rows and Column',()=>{
-
-    })
-    it('Check number of rows and Column',()=>{
-
-    })
-    it('Check number of rows and Column',()=>{
-
-    })
-    it('Check number of rows and Column',()=>{
-
-    })
-    it('Check number of rows and Column',()=>{
-
-    })
-    it('Check number of rows and Column',()=>{
-
-    })
-
-    
-
-    
 })
