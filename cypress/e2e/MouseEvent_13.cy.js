@@ -1,3 +1,4 @@
+import 'cypress-iframe';
 describe('Mouse Operations',()=>{
 
     it('MouseHover',()=>{
@@ -13,7 +14,7 @@ describe('Mouse Operations',()=>{
 
     })
 
-    it.only('Right Click',()=>{
+    it('Right Click',()=>{
 
         //Approach 1
 
@@ -29,12 +30,26 @@ describe('Mouse Operations',()=>{
 
         cy.get('.context-menu-icon-copy > span').should('be.visible');
 
-
-
-    
     })
 
-    it('Double Click',()=>{
+    it.only('Double Click',()=>{
+
+        
+
+        cy.visit('https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3');
+
+        cy.frameLoaded('#iframeResult'); //frame loded
+
+        //Approach 1 -triger()
+
+        //cy.iframe('#iframeResult').find("button[ondblclick='myFunction()']").trigger('dblclick');
+       // cy.iframe('#iframeResult').find('input#field2').should('have.value','Hello World!');
+
+        //Approach 2 - dblclick()
+
+        cy.iframe('#iframeResult').find("button[ondblclick='myFunction()']").dblclick();
+        cy.iframe('#iframeResult').find('input#field2').should('have.value','Hello World!');
+
 
 
     })
