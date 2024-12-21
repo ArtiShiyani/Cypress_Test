@@ -1,4 +1,6 @@
 import 'cypress-iframe';
+require('@4tw/cypress-drag-drop');
+
 describe('Mouse Operations',()=>{
 
     it('MouseHover',()=>{
@@ -32,7 +34,7 @@ describe('Mouse Operations',()=>{
 
     })
 
-    it.only('Double Click',()=>{
+    it('Double Click',()=>{
 
         
 
@@ -55,10 +57,37 @@ describe('Mouse Operations',()=>{
     })
     it('Drag and Drop using plugin',()=>{
 
+        //Need to install  NPM plugin >>npm install --save-dev @4tw/cypress-drag-drop
+
+        cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html');
+
+        cy.get('#box1').should('be.visible');
+
+        cy.get('#box101').should('be.visible');
+
+        //cy.wait(5000);
+
+        cy.get('#box1').drag('#box101',{force:true});
+
+        /*cy.get('#box2').drag('#box102');
+
+        cy.get('#box3').drag('#box103');
+
+        cy.get('#box4').drag('#box104');
+
+        cy.get('#box5').drag('#box105');
+
+        cy.get('#box6').drag('#box106');
+
+        cy.get('#box7').drag('#box106');*/
+
 
     })
 
-    it('Scrolling Page',()=>{
+    it.only('Scrolling Page',()=>{
+
+        cy.visit('https://www.countries-ofthe-world.com/flags-of-the-world.html')
+        
 
 
     })
