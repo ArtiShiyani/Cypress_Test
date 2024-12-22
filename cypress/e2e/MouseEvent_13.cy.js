@@ -1,5 +1,5 @@
-import 'cypress-iframe';
-require('@4tw/cypress-drag-drop');
+import 'cypress-iframe'; // necessary for iframe
+require('@4tw/cypress-drag-drop'); // necessary when drag and drop plugin is installed.
 
 describe('Mouse Operations',()=>{
 
@@ -86,9 +86,17 @@ describe('Mouse Operations',()=>{
 
     it.only('Scrolling Page',()=>{
 
-        cy.visit('https://www.countries-ofthe-world.com/flags-of-the-world.html')
-        
+        /*cy.visit('https://www.countries-ofthe-world.com/flags-of-the-world.html');
 
+        cy.get('body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1)').scrollIntoView();
+
+        cy.get('body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1)').should('be.visible');*/
+
+        cy.visit('https://www.countries-ofthe-world.com/');
+        cy.get('ul:nth-child(3) li:nth-child(6)').scrollIntoView();
+        cy.get('ul:nth-child(3) li:nth-child(6)').should('be.visible');
+
+        cy.get('#footer').scrollIntoView()
 
     })
 
