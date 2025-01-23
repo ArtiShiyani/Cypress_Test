@@ -65,20 +65,13 @@ describe('File Uploads',(()=>{
 
     it('Upload file show Dom',()=>{
 
-    })
+        cy.visit('https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm');
 
+        cy.get('.smart-browse-input',{includeShadowDom:true}).attachFile('Arti Shiyani - 2.docx');
 
-    it('',()=>{
+        cy.wait(5000);
 
-    })
-
-
-    it('',()=>{
-
-    })
-
-
-    it('',()=>{
+        cy.get('#fileUploadc8efFile2Name').contains('Arti Shiyani - 2.docx')
 
     })
 
