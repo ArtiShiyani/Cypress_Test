@@ -3,7 +3,7 @@ describe('Fixture test case',()=>{
 
 
     //1) Direct access
-    it('FixtureDemoTest',()=>{
+    it.skip('FixtureDemoTest',()=>{
 
         //Normal method
 
@@ -41,7 +41,28 @@ describe('Fixture test case',()=>{
     })
 
     //2) Through hook - for multiplr it block
-    it('',()=>{
+    // before hook is used here.
+    let userdata ;
+    before( ()=>{
+
+        cy.fixture('OrangeHRM.json').then( (data)=>{
+            userdata = data;
+
+        })
+    })
+
+    it('Fixture Demo Test',()=>{
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+
+
+        cy.get('input[name="username"]').type(userdata.username);
+
+        cy.get("input[placeholder='Password']").type(userdata.password);
+
+        cy.get("button[type='submit']").click();
+
+        cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('have.text', userdata.expected);
+
 
     })
 
