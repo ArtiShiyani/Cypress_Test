@@ -34,10 +34,6 @@ describe('Fixture test case',()=>{
 
         })
 
-        
-
-
-
     })
 
     //2) Through hook - for multiplr it block
@@ -63,9 +59,6 @@ describe('Fixture test case',()=>{
 
         cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('have.text', userdata.expected);
 
-
     })
-
-
 
 })
